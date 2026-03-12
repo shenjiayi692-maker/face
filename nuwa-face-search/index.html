@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuwa — Face Search</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <a href="/" class="logo">Nuwa</a>
+    <nav class="nav">
+      <a href="#" class="nav-link active">Face Search</a>
+      <a href="#" class="nav-link">How it works</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn btn-ghost">Sign in</button>
+      <button class="btn btn-primary">Get started</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <h1 class="hero-title">
+        <span class="hero-title-line">Find anyone,</span>
+        <span class="hero-title-line accent">by face.</span>
+      </h1>
+      <p class="hero-subtitle">
+        Upload a photo to search across profiles. Powered by AI facial recognition.
+      </p>
+
+      <div class="search-section">
+        <div class="upload-zone" id="uploadZone">
+          <input type="file" id="fileInput" accept="image/*" capture="user" hidden>
+          <div class="upload-content" id="uploadContent">
+            <div class="upload-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+            </div>
+            <p class="upload-text">Drop a face photo here or <span>browse</span></p>
+            <p class="upload-hint">JPG, PNG or WebP • Max 10MB</p>
+          </div>
+          <div class="preview-container" id="previewContainer" hidden>
+            <img id="previewImage" alt="Uploaded face">
+            <button class="preview-remove" id="removeImage" aria-label="Remove image">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <button class="btn btn-search" id="searchBtn" disabled>
+          <span class="btn-search-text">Search by face</span>
+          <span class="btn-search-loading" hidden>
+            <span class="spinner"></span>
+            Analyzing face...
+          </span>
+        </button>
+      </div>
+    </section>
+
+    <section class="results-section" id="resultsSection" hidden>
+      <div class="results-header">
+        <h2>Search results</h2>
+        <p class="results-count" id="resultsCount">0 matches found</p>
+      </div>
+      <div class="results-grid" id="resultsGrid">
+        <!-- Results injected by JS -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Nuwa. AI-powered face search.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.8.6/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
